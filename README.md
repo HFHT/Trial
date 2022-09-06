@@ -14,5 +14,5 @@ This where the typical React App lives. Only authenticated users can get to this
 
 ### .env variables
 These values are provided by Microsoft when you register your application:
-VITE_MSALCLIENTID 
-VITE_AUTH
+--VITE_MSALCLIENTID 
+--VITE_AUTH
