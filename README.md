@@ -16,3 +16,6 @@ This where the typical React App lives. Only authenticated users can get to this
 These values are provided by Microsoft when you register your application:
 - VITE_MSALCLIENTID 
 - VITE_AUTH
+
+### Dependencies
+The project uses Vite for a minimal React environment. TailwindCSS is included but not used in this skeleton.
