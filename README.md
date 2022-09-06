@@ -11,3 +11,8 @@ to the App layer
 
 ### App layer
 This where the typical React App lives. Only authenticated users can get to this level.
+
+### .env variables
+These values are provided by Microsoft when you register your application:
+VITE_MSALCLIENTID 
+VITE_AUTH
