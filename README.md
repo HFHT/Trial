@@ -1,5 +1,5 @@
-# Trial
-Starting point for HFHT applications that require Msal authentication and Graph profile information.
+# Trial (msal-react example along with MS Graph
+Starting point for HFHT applications that require Msal authentication and Graph profile information. 
 
 ### Auth layer
 The authentication layer wraps the entire application, the child pages will only be visible to authenticated users. It utilizes Msal to authenticate the user, if they
