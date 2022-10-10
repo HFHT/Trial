@@ -1,10 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { MsalProvider, AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from "@azure/msal-react";
+import {
+  MsalProvider, AuthenticatedTemplate,
+  UnauthenticatedTemplate, useMsal
+} from "@azure/msal-react";
 
 import { PublicClientApplication } from "@azure/msal-browser"
 import AuthProfile from './authProfile'
 import { msalConfig } from "./authConfig"
+import { AuthContextProvider } from './authContext';
 
 export const msalInstance = new PublicClientApplication(msalConfig);
 
@@ -12,7 +16,11 @@ export const msalInstance = new PublicClientApplication(msalConfig);
 function SignInButton() {
   const { instance } = useMsal();
 
-  return <button onClick={() => signInClickHandler(instance)}>Sign In</button>;
+  return (
+    <button onClick={() => signInClickHandler(instance)}>
+      Sign In
+    </button>
+  );
 }
 async function signInClickHandler(instance: any) {
   console.log(instance)
@@ -24,7 +32,9 @@ function SignOutButton() {
   const { instance } = useMsal();
 
   return (
-    <button onClick={() => signOutClickHandler(instance)}>Sign Out</button>
+    <button onClick={() => signOutClickHandler(instance)}>
+      Sign Out
+    </button>
   );
 }
 function signOutClickHandler(instance: any) {
@@ -35,8 +45,11 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <MsalProvider instance={msalInstance}>
       <AuthenticatedTemplate>
-        <SignOutButton />
-        <AuthProfile />
+        <AuthContextProvider msal={msalInstance}>
+          <AuthProfile msal={msalInstance}>
+            <SignOutButton />
+          </AuthProfile>
+        </AuthContextProvider>
       </AuthenticatedTemplate>
 
       <UnauthenticatedTemplate>

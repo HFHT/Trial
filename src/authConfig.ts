@@ -4,7 +4,7 @@
  */
 
 import { LogLevel } from "@azure/msal-browser";
-
+import stockPhoto from './assets/msProfile.svg'
 /**
  * Configuration object to be passed to MSAL instance on creation. 
  * For a full list of MSAL.js configuration parameters, visit:
@@ -23,8 +23,8 @@ export const msalConfig = {
         storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     },
     system: {
-        /*loggerOptions: {
-            loggerCallback: (level, message, containsPii) => {
+        loggerOptions: {
+            loggerCallback: (level:any, message:string, containsPii:boolean) => {
                 if (containsPii) {
                     return;
                 }
@@ -43,7 +43,7 @@ export const msalConfig = {
                         return;
                 }
             }
-        } */
+        } 
     }
 };
 
@@ -96,10 +96,14 @@ export async function getProfile(photoSetter : any, msalInstance : any) {
     }
   
     await fetch(graphConfig.graphMePhoto, options)
-    .then(response => response.blob())
+    .then(response => {
+        console.log(response, response.ok)
+        !response.ok && (photo = stockPhoto)
+        return response.blob()
+    })
     .then(photoBlob => {
       window.URL = window.URL || window.webkitURL
-      photo = window.URL.createObjectURL(photoBlob) 
+      !photo && (photo = window.URL.createObjectURL(photoBlob)) 
     })
     .catch(error => {
       console.log(error)
