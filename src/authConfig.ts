@@ -24,7 +24,7 @@ export const msalConfig = {
     },
     system: {
         loggerOptions: {
-            loggerCallback: (level:any, message:string, containsPii:boolean) => {
+            loggerCallback: (level:LogLevel, message:string, containsPii:boolean): void => {
                 if (containsPii) {
                     return;
                 }
@@ -33,7 +33,7 @@ export const msalConfig = {
                         console.error(message);
                         return;
                     case LogLevel.Info:
-                        console.info(message);
+//                        console.info(message);
                         return;
                     case LogLevel.Verbose:
                         console.debug(message);
