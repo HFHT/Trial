@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, useEffect, StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import {
   MsalProvider, AuthenticatedTemplate,
@@ -9,7 +9,8 @@ import { PublicClientApplication } from "@azure/msal-browser"
 import AuthProfile from './authProfile'
 import { msalConfig } from "./authConfig"
 import { AuthContextProvider } from './authContext';
-
+import Badge from './components/Badge'
+import { Printer } from "./icons/Printer"
 export const msalInstance = new PublicClientApplication(msalConfig);
 
 // SignInButton Component returns a button that invokes a popup login when clicked
@@ -17,7 +18,7 @@ function SignInButton() {
   const { instance } = useMsal();
 
   return (
-    <button onClick={() => signInClickHandler(instance)}>
+    <button className="badge" onClick={() => signInClickHandler(instance)}>
       Sign In
     </button>
   );
@@ -44,7 +45,6 @@ function SignOutButton() {
   );
 }
 
-
 async function signOutClickHandler(instance: any) {
   try {
     await instance.logoutPopup().then(
@@ -54,21 +54,46 @@ async function signOutClickHandler(instance: any) {
     console.log(error)
   }
 }
-const theme = {
-  sidebar: {
-    base: 'h-full bg-inherit',
-    inner: 'h-full overflow-y-auto overflow-x-hidden rounded bg-inherit py-4 px-3',
-  },
-};
+
+const Theme: any = (props: any) => {
+  const [theme, setTheme] = useState('light');
+  useEffect(() => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  }, [])
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+    }
+  }, [theme])
+  const handleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  }
+  return (<div className="bg-white dark:bg-slate-700">
+    <button className="bg-green-200 dark:bg-red-200 p-4 rounded-3xl" onClick={handleThemeSwitch}>
+      Dark mode
+    </button>
+    {props.children}
+  </div>
+  )
+}
+
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  <StrictMode>
+    <Theme >
       <MsalProvider instance={msalInstance}>
         <AuthenticatedTemplate>
           <AuthContextProvider msal={msalInstance}>
             <AuthProfile msal={msalInstance}>
               <SignOutButton />
-
+              <Badge icon={<Printer />} label='Barcodes' content='1' />
             </AuthProfile>
           </AuthContextProvider>
         </AuthenticatedTemplate>
@@ -78,5 +103,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <SignInButton />
         </UnauthenticatedTemplate>
       </MsalProvider>
-  </React.StrictMode>
+    </Theme>
+  </StrictMode>
 )

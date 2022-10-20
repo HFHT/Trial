@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.display-none {
+    @apply hidden;
+}
+.badge-offset {
+    left:30px;
+    width:16px;
+}
+
+.badge-icon {
+    @apply inline fill-slate-700 dark:fill-slate-200;
+}
+.badge-content {
+    @apply absolute text-center badge-offset top-0 bg-green-800 text-xs text-white font-semibold rounded-full;
+}
+.badge-label {
+    @apply inline invisible ml-2 text-base text-slate-700 dark:text-slate-200 sm:visible;
+}
+.badge {
+    @apply inline-block mb-1 tracking-wide font-semibold rounded-full px-2 absolute;
+}
+
+.btn {
+    @apply rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider;
+}
+
+.card {
+    @apply bg-white rounded overflow-hidden shadow-md relative;
+}
