@@ -44,7 +44,9 @@ function SignOutButton() {
     </button>
   );
 }
-
+function badgeClick(e: Event) {
+  console.log(e)
+}
 async function signOutClickHandler(instance: any) {
   try {
     await instance.logoutPopup().then(
@@ -83,7 +85,9 @@ const Theme: any = (props: any) => {
   </div>
   )
 }
-
+const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  console.log(e);
+}
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
@@ -93,7 +97,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <AuthContextProvider msal={msalInstance}>
             <AuthProfile msal={msalInstance}>
               <SignOutButton />
-              <Badge icon={<Printer />} label='Barcodes' content='1' />
+              <div className="badgeGroup">
+              <Badge icon={<Printer />} label='Barcodes' content='1' onClick={(e:React.MouseEvent<HTMLButtonElement>) => handleClick(e)}/>
+              </div>
             </AuthProfile>
           </AuthContextProvider>
         </AuthenticatedTemplate>
