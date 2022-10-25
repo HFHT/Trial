@@ -27,9 +27,8 @@
 }
 
 .badge-root {
-    @apply relative inline-flex align-middle shrink-0 hover:fill-red-600 transition-colors;
+    @apply relative inline-flex align-middle shrink-0 outline-0 border-spacing-0 m-0 text-center grow-0 basis-auto text-[1.5rem] p-2 rounded-[50%] overflow-visible hover:bg-gray-500/[.18] dark:hover:bg-black/[.18] transition-colors;
 }
-
 
 .badgeIcon {
     width: 1em;
@@ -42,33 +41,12 @@
 }
 
 .badge-icon {
-    @apply fill-slate-700 dark:fill-slate-200 w-8 h-8 inline-block flex-shrink-0 text-[1.5rem] hover:scale-105 hover:fill-black hover:bg-slate-300 dark:hover:fill-white dark:hover:bg-slate-600;
+    @apply fill-slate-700 dark:fill-slate-200 w-8 h-8 inline-block flex-shrink-0 text-[1.5rem] hover:scale-105 hover:fill-black dark:hover:fill-white;
 }
 
-.badgeContent {
-    display: flex;
-    flex-flow: row wrap;
-    -webkit-box-pack: center;
-    place-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    position: absolute;
-    box-sizing: border-box;
-    font-weight: 500;
-    font-size: 0.75rem;
-    min-width: 20px;
-    line-height: 1;
-    padding: 0px 6px;
-    height: 20px;
-    border-radius: 10px;
-    z-index: 1;
-    transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    background-color: rgb(25, 133, 123);
-    color: rgb(255, 255, 255);
-    top: 0px;
-    right: 0px;
-    transform: scale(1) translate(50%, -50%);
-    transform-origin: 100% 0%;
+.badge-content {
+    @apply absolute flex flex-row flex-wrap place-content-center items-center text-xs px-[6px] h-[20px] box-border min-w-px20 
+    rounded-[10px] z-[1] bg-green-700 text-white top-0 right-[-5px];
 }
 
 .badgeSpan {
@@ -80,12 +58,8 @@
     border-radius: inherit;
 }
 
-.badge-content {
-    @apply absolute text-center badge-offset top-0 bg-green-800 text-xs text-white font-semibold rounded-full min-w-[16px] pl-1 pr-1;
-}
-
 .badge-label {
-    @apply  align-bottom inline invisible ml-2 text-base text-slate-800 dark:text-slate-200 sm:visible;
+    @apply  align-sub inline invisible ml-1 text-[1.1rem] text-slate-900 dark:text-slate-200 sm:visible font-medium;
 }
 
 .badge {

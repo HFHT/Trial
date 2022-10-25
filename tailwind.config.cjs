@@ -4,7 +4,8 @@ module.exports = {
   darkMode: 'class',
   theme: {
     minWidth: {
-      'badge': '6px'
+      'px6': '6px',
+      'px20': '20px'
     },
     badge: ({theme}) => ({
       color: 'bg-blue-100'
