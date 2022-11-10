@@ -17,6 +17,7 @@ export const AuthContextProvider = (props: {
 
     const [userAccount, setUserAccount] = useState({})
     const [userPhoto, setUserPhoto] = useState('')
+    const [theme, setTheme] = useState('light');
     const { accounts } = useMsal()
 
     useEffect(() => {
@@ -24,18 +25,33 @@ export const AuthContextProvider = (props: {
         console.log(props.msal)
         setUserAccount(accounts[0])
         getProfile(setUserPhoto, props.msal)
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+          } else {
+            setTheme('light');
+          }
     }, []);
 
+    useEffect(() => {
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark")
+        } else {
+          document.documentElement.classList.remove("dark")
+        }
+      }, [theme])
+
     return (
-        <div>
+        <>
             {userPhoto != '' &&
                 <AuthContext.Provider value={{
                     account: userAccount,
-                    photo: userPhoto
+                    photo: userPhoto,
+                    theme: theme, 
+                    setTheme: setTheme
                 }}>
                     {props.children}
                 </AuthContext.Provider>
             }
-        </div>
+        </>
     )
 }

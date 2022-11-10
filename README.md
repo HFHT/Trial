@@ -19,3 +19,6 @@ These values are provided by Microsoft when you register your application:
 
 ### Dependencies
 The project uses Vite for a minimal React environment. TailwindCSS is included but not used in this skeleton.
+
+### Todo
+Normalize tailwind classes

@@ -1,13 +1,15 @@
 import { createContext } from "react";
 
 interface IAuthContext {
-    account: {},
-    photo: string
+    account: any,
+    photo: string,
+    theme?: string,
+    setTheme?: React.Dispatch<React.SetStateAction<string>> | void
 }
 
 const defaultState = {
     account: {},
-    photo: ''
+    photo: '',
 }
 
 export const AuthContext = createContext<IAuthContext>(defaultState)

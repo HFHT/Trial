@@ -5,12 +5,17 @@ module.exports = {
   theme: {
     minWidth: {
       'px6': '6px',
-      'px20': '20px'
+      'px20': '20px',
+      'px64': '64px'
     },
     badge: ({theme}) => ({
       color: 'bg-blue-100'
     }),
-    extend: {},
+    extend: {
+      screens: {
+        'myApp': '1216px'
+      }
+    },
   },
   plugins: [],
 }
