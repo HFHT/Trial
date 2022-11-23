@@ -20,39 +20,39 @@ interface INav {
 export function NavItem(navProps: INav) {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(e)
+    //console.log(e)
     navProps.onClick && navProps.onClick(e.currentTarget.closest('button'));
   }
 
   const handleSubClick = (e: any) => {
-    console.log(e)
+    //console.log(e)
     e.target.parentNode.parentNode.style.zIndex = "-10";
     e.target.parentNode.parentNode.previousSibling.classList.remove('focus');
     navProps.onSubClick && navProps.onSubClick(e.target.innerHTML);
   }
 
   const handleFocus = (e: any) => {
-    console.log(e)
+    //console.log(e)
     e.currentTarget.closest('button').classList.add('focus');
     e.currentTarget.nextSibling.style.zIndex = "0";
     navProps.onFocus && navProps.onFocus(e.currentTarget.closest('button'));
   }
 
   const handleBlur = (e: any) => {
-    console.log(e)
+    //console.log(e)
     //e.currentTarget.closest('button').classList.remove('focus')
     navProps.onBlur && navProps.onBlur(e.currentTarget.closest('button'));
   }
 
   const handleSubBlur = (e: any) => {
-    console.log(e)
+    //console.log(e)
     e.currentTarget.previousSibling.classList.remove('focus')
     e.currentTarget.style.zIndex = "-10";
   }
 
   const handleNavBlur = (e: any) => {
-    console.log(e)
-    console.log(e.currentTarget)
+    //console.log(e)
+    //console.log(e.currentTarget)
     e.currentTarget.firstChild.classList.remove('focus')
     e.currentTarget.lastChild.style.zIndex = "-10";
   }
