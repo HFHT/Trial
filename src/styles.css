@@ -43,7 +43,7 @@
 }
 
 .navBar {
-    @apply flex flex-col myApp:flex-row
+    @apply flex flex-col myApp:flex-row overflow-y-auto
 }
 
 .navBar-badge {

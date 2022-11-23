@@ -14,6 +14,9 @@ module.exports = {
     extend: {
       screens: {
         'myApp': '1216px'
+      },
+      flex: {
+        'footer': '0 0 auto'
       }
     },
   },

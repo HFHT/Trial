@@ -37,7 +37,7 @@ interface IBadge {
   
     return (
       <div>
-        <button className='hover:bg-gray-500/[.12] dark:hover:bg-black/[.18] transition-colors' onClick={(e) => handleClick(e)} onMouseOver={(e) => handleFocus(e)} onMouseOut={(e) => handleBlur(e)}>
+        <button className='hover:bg-gray-500/[.12] dark:hover:bg-black/[.18] transition-colors' onClick={(e) => handleClick(e)} onMouseEnter={(e) => handleFocus(e)} onMouseLeave={(e) => handleBlur(e)}>
           <div className="relative inline-flex align-middle shrink-0 outline-0 border-spacing-0 m-0 text-center grow-0 basis-auto text-[1.5rem] p-2 rounded-[50%] overflow-visible hover:bg-gray-500/[.18] dark:hover:bg-black/[.18] transition-colors">
             {badgeProps.icon}
             {badgeProps.content && <span className={`${colors[color]} absolute flex flex-row flex-wrap place-content-center items-center text-xs px-[6px] h-[20px] box-border min-w-px20 rounded-[10px] z-[1] text-white top-0 right-[-5px]`}>{badgeProps.content}</span>}
