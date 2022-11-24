@@ -21,5 +21,6 @@ export * from './Kitchen';
 export * from './Paint';
 export * from './Plumbing';
 export * from './Tools';
+export * from './Star';
 export * from './Supplies';
 export * from './Palette';

@@ -34,7 +34,7 @@ export function NavItem(navProps: INav) {
   const handleFocus = (e: any) => {
     //console.log(e)
     e.currentTarget.closest('button').classList.add('focus');
-    e.currentTarget.nextSibling.style.zIndex = "0";
+    e.currentTarget.nextSibling.style.zIndex = "10";
     navProps.onFocus && navProps.onFocus(e.currentTarget.closest('button'));
   }
 

@@ -1,7 +1,7 @@
 
 import { Printer, Profile, Settings, Download, BldgMat, Appliance, Lumber, Electrical, Flooring, Hardware, HVAC, Kitchen, Paint, Plumbing, Tools, Supplies, Palette } from "../../icons"
-import { Button, NavItem } from '../../components'
-import { useContext, useState } from "react";
+import { Button, Card, NavItem } from '../../components'
+import { useContext, useState, useEffect } from "react";
 
 export function Main(props: any) {
   const [filter, setFilter] = useState('');
@@ -105,19 +105,43 @@ export function Main(props: any) {
         >
         </NavItem>
       </div>
-      <div className="myApp:inline-block m-2">
-        <div className="flexRow">
-          <Button onClick={(e) => handleClick(e)}>child</Button>
-          <Button variant='contained' onClick={(e) => handleClick(e)}>child1</Button>
-          <Button variant='pill' onClick={(e) => handleClick(e)}>child2</Button>
-        </div>
-        <div className="flexRow">
-          <Button left startIcon={<Profile classes='mr-2 icon-button' />} endIcon={<Printer classes='ml-2 icon-button' />} onClick={(e) => handleClick(e)}>Profile</Button>
-          <Button mid startIcon={<Settings />} onClick={(e) => handleClick(e)}>Settings</Button>
-          <Button right startIcon={<Download classes=' icon-button' />} onClick={(e) => handleClick(e)}>Download</Button>
+      <div className="myApp:inline-block m-2 overflow-y-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 myApp:grid-cols-6">
+          <div className="flexRow">
+            <Button onClick={(e) => handleClick(e)}>child</Button>
+            <Button variant='contained' onClick={(e) => handleClick(e)}>child1</Button>
+            <Button variant='pill' onClick={(e) => handleClick(e)}>child2</Button>
+          </div>
+          <div className="flexRow">
+            <Button left startIcon={<Profile classes='mr-2 icon-button' />} endIcon={<Printer classes='ml-2 icon-button' />} onClick={(e) => handleClick(e)}>Profile</Button>
+            <Button mid startIcon={<Settings />} onClick={(e) => handleClick(e)}>Settings</Button>
+            <Button right startIcon={<Download classes=' icon-button' />} onClick={(e) => handleClick(e)}>Download</Button>
+          </div>
+          <Card img="https://images.thdstatic.com/productImages/eb67cc0f-990b-4c67-8719-9b96e27df582/svn/framing-studs-058448-64_400.jpg"/>
+          <Card img="https://images.thdstatic.com/productImages/eb67cc0f-990b-4c67-8719-9b96e27df582/svn/framing-studs-058448-64_400.jp"/>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card img="https://images.thdstatic.com/productImages/eb67cc0f-990b-4c67-8719-9b96e27df582/svn/framing-studs-058448-64_400.jp"/>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card select={true}/>
         </div>
       </div>
-
     </>
   );
 }

@@ -860,6 +860,10 @@ video {
   display: table;
 }
 
+.grid {
+  display: grid;
+}
+
 .hidden {
   display: none;
 }
@@ -1248,6 +1252,10 @@ video {
 .appearance-none {
   -webkit-appearance: none;
           appearance: none;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -2008,6 +2016,14 @@ video {
   fill: currentColor;
 }
 
+.fill-green-600 {
+  fill: #16a34a;
+}
+
+.fill-slate-600 {
+  fill: #475569;
+}
+
 .fill-red-600 {
   fill: #dc2626;
 }
@@ -2630,6 +2646,27 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.svgFilter {
+  -webkit-filter:invert(0.5);
+          filter:invert(0.5);
+}
+
+.svgSize {
+  scale:800%;
+}
+
+.svgBroken {
+  -webkit-filter:invert(0.5);
+          filter:invert(0.5);
+  width:800%;
+}
+
+.svgBox {
+  box-sizing:content-box;
+  justify-content: center;
+  display:flex;
+}
+
 .focus {
   --tw-bg-opacity: 1;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
@@ -2762,6 +2799,7 @@ video {
 @media (min-width: 1216px) {
   .navBar {
     flex-direction: row;
+    overflow-y: visible;
   }
 }
 
@@ -2789,6 +2827,18 @@ video {
   height: 1rem;
   width: 1rem;
   fill: currentColor;
+}
+
+.star-hover:hover {
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  fill: #16a34a;
+}
+
+.dark .star-hover:hover {
+  fill: #fde047;
 }
 
 .after\:translate-x-full::after {
@@ -3583,6 +3633,14 @@ video {
   --tw-bg-opacity: 0.8;
 }
 
+.dark .dark\:fill-yellow-300 {
+  fill: #fde047;
+}
+
+.dark .dark\:fill-slate-100 {
+  fill: #f1f5f9;
+}
+
 .dark .dark\:fill-gray-300 {
   fill: #d1d5db;
 }
@@ -4235,6 +4293,10 @@ video {
     margin-bottom: 2rem;
   }
 
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -4248,6 +4310,10 @@ video {
 
   .myApp\:flex {
     display: flex;
+  }
+
+  .myApp\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .myApp\:flex-col {
