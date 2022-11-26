@@ -59,7 +59,7 @@ export function NavItem(navProps: INav) {
 
   return (
     <div onMouseLeave={(e) => handleNavBlur(e)} >
-      <button className='hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors' onClick={(e) => handleClick(e)} onMouseEnter={(e) => handleFocus(e)} onMouseLeave={(e) => handleBlur(e)}>
+      <button className='hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors whitespace-pre' onClick={(e) => handleClick(e)} onMouseEnter={(e) => handleFocus(e)} onMouseLeave={(e) => handleBlur(e)}>
         {navProps.icon &&
           <div className="relative inline-flex align-middle shrink-0 outline-0 border-spacing-0 m-0 text-center grow-0 basis-auto text-[1.5rem] p-2 rounded-[50%] overflow-visible hover:bg-gray-500/[.18] dark:hover:bg-black/[.18] transition-colors">
             {navProps.icon}

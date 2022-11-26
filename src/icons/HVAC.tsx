@@ -6,7 +6,7 @@ export const HVAC = (props: ILogo) => {
     const iconClass: string = props.classes ? props.classes : '';
     return (
         <>
-            <svg className={`${iconClass} fill-current`} fill="currentColor" version="1.0" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 125.000000 125.000000" preserveAspectRatio="xMidYMid meet">
+            <svg className={`${iconClass}`} fill="currentColor" version="1.0" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 125.000000 125.000000" preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(0.000000,125.000000) scale(0.100000,-0.100000)">
                     <path d="M368 975 c-59 -8 -119 -19 -134 -27 -33 -16 -65 -94 -82 -199 -11 -64 -10 -88 2 -148 22 -107 62 -189 95 -195 81 -17 390 -26 547 -16 233 14 226 12 249 63 72 156 72 328 2 459 -23 43 -27 44 -182 63 -143 18 -350 17 -497 0z m564 -37 c73 -11 78 -13 93 -45 61 -128 61 -287 -1 -415 -9 -20 -24 -40 -33 -43 -53 -21 -595 -27 -699 -8 -37 7 -47 14 -66 48 -38 68 -49 126 -44 232 3 73 11 113 29 158 22 56 27 60 64 68 130 26 500 29 657 5z"/>
                     <path d="M907 813 c-30 -71 -10 -233 29 -233 27 0 52 71 50 140 -3 113 -48 166 -79 93z m43 -28 c0 -8 -4 -15 -10 -15 -5 0 -10 7 -10 15 0 8 5 15 10 15 6 0 10 -7 10 -15z m0 -139 c0 -3 -4 -8 -10 -11 -5 -3 -10 -1 -10 4 0 6 5 11 10 11 6 0 10 -2 10 -4z"/>

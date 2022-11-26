@@ -13,7 +13,9 @@ module.exports = {
     }),
     extend: {
       screens: {
-        'myApp': '1216px'
+        'myApp': '1216px',
+        'ws': '2560px',
+        '4k': '3840px'
       },
       flex: {
         'footer': '0 0 auto'

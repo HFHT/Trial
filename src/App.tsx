@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, SetStateAction } from 'react'
-import { Printer, Logo, Moon, Logout } from "./icons"
+import { Printer, Logo, Moon, Logout, ShopCart, Truck, Palett } from "./icons"
 import { Badge, Drawer } from './components'
 import { MsalProvider, AuthenticatedTemplate, UnauthenticatedTemplate, useMsal} from "@azure/msal-react";
 import { AuthContext } from './context/AuthContext';
@@ -51,8 +51,10 @@ export default function App(props: any) {
           <h4 className="text-3xl  text-slate-900 dark:text-slate-200 sm:inline hidden">Inventory</h4>
         </div>
         <div className="flexRow">
-          <Badge icon={<Printer classes='icon-badge icon-hover icon-dm' />} label='Barcodes' content='1' onClick={(e) => handleClick(e)} onFocus={(e) => handleFocus(e)} onBlur={(e) => handleBlur(e)} color='blue' />
-          <Badge icon={<Printer classes='icon-badge icon-hover icon-dm' />} label='Print' content='12' onClick={(e) => handleClick(e)} color='red' />
+          <Badge icon={<Printer classes='icon-badge icon-hover icon-menu icon-dm' />} label='Barcodes' content='1' onClick={(e) => handleClick(e)} onFocus={(e) => handleFocus(e)} onBlur={(e) => handleBlur(e)} color='blue' />
+          <Badge icon={<ShopCart classes='icon-badge icon-hover icon-menu icon-dm' />} label='Orders' content='12' onClick={(e) => handleClick(e)} color='red' />
+          <Badge icon={<Truck classes='icon-badge icon-hover icon-menu icon-dm' />} label='Shipment' content='12' onClick={(e) => handleClick(e)} color='red' />
+          <Badge icon={<Palett classes='icon-badge icon-hover icon-menu icon-dm' />} label='Pallet' content='12' onClick={(e) => handleClick(e)} color='red' />
         </div>
         <button onClick={(e) => openAccount(e)}>
           <img src={photo} className="rounded-full h-12 w-12"></img>
@@ -81,7 +83,7 @@ export default function App(props: any) {
         <Main />
       </main>
       <footer className="dark:text-white font-normal text-xs text-center flex-footer">
-        Copyright Habitat for Humanity Tucson 2022
+        Copyright<span>&copy;</span> Habitat for Humanity Tucson 2022
       </footer>
     </div>
   )

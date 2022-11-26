@@ -1,6 +1,8 @@
 
-import { Star } from "../../icons";
+import { Palett, Printer, ShopCart, Star, Truck } from "../../icons";
 import { PlusCircle, XCircle } from "../../assets"
+import { Chevron } from "../../icons/Chevron";
+import { useState } from "react";
 
 interface ICard {
   img?: string | null;
@@ -20,6 +22,7 @@ interface ICard {
 }
 
 export function Card(cardProps: ICard) {
+  const [expanded, setExpanded] = useState(false)
   let image = cardProps.img ? cardProps.img : PlusCircle;
   let svgClass = cardProps.img ? '' : 'svgBroken';
   let svgTitle = cardProps.img ? (cardProps.title ? cardProps.title : '') : 'Please add picture'
@@ -34,17 +37,44 @@ export function Card(cardProps: ICard) {
   return (
     <div className="border border-gray-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
       <div className="grid grid-cols-1 gap-1">
-        <div>Top Row <Star select={cardProps.select} /></div>
-        <div className="svgBox"><img src={image} onError={(e) => handleBrokenImage(e)} className={svgClass} title={svgTitle} /></div>
-        <div>Bottom Row
-          <div className="animate-pulse flex space-x-4">
-            <div className="rounded-full bg-gray-400 h-12 w-12"></div>
-            <div className="flex-1 space-y-4 py-1">
-              <div className="h-4 bg-gray-400 rounded w-3/4"></div>
-              <div className="space-y-2">
-                <div className="h-4 bg-gray-400 rounded"></div>
-                <div className="h-4 bg-gray-400 rounded w-5/6"></div>
-              </div>
+        <div className="flex items-center pb-2 text-dm">
+          <div className="basis-11/12 grid grid-cols-1 ga-1">
+            <div className="h-9 leading-none">Item Name is really long</div>
+            <div className="text-xs">In Stock: 0 | Framing</div>
+          </div>
+          <div className="flex-footer self-start">
+            <Star select={cardProps.select} />
+          </div>
+        </div>
+        <div className="svgBox">
+          <img src={image} onError={(e) => handleBrokenImage(e)} className={`${svgClass} object-cover h-40 w-full`} title={svgTitle} />
+        </div>
+        <div className="grid grid-cols-1 gap-1">
+          <div className="flex items-center pt-4 text-dm">
+            <div className="basis-11/12 flex">
+              <Printer classes="icon-badge icon-menu" title='Print this barcode.'/>
+              <ShopCart classes="icon-badge icon-menu" title='Add to shopping cart.'/>
+              <Truck classes="icon-badge icon-menu" title='Add to shipment.'/>
+              <Palett classes="icon-badge icon-menu" title='Add to pallet.'/>
+            </div>
+            <div className="flex-footer self-start">
+              <button onClick={(e) => setExpanded(!expanded)}>
+                <Chevron enabled={expanded} />
+              </button>
+            </div>
+          </div>
+          <div className={`${expanded ? 'inline-block' : 'hidden'} pb-1`}>
+            <div className="flex items-center pt-1 text-dm text-xs border-t border-gray-300 dark:border-slate-700 border-solid pb-1">
+              <div className="basis-6/12">Carters Court</div>
+              <div className="basis-4/12">Stock: 110</div>
+              <div className="basis-3/12">Aisle: A1</div>
+              <div className="basis-3/12">Bay: 11</div>
+            </div>
+            <div className="flex items-center pt-1 text-dm text-xs border-t border-gray-300 dark:border-slate-700 border-solid pb-1">
+              <div className="basis-6/12">Office</div>
+              <div className="basis-4/12">Stock: 0</div>
+              <div className="basis-3/12">Aisle: A2</div>
+              <div className="basis-3/12">Bay: 12</div>
             </div>
           </div>
         </div>

@@ -12,7 +12,7 @@
 
 .svgBroken {
     filter:invert(0.5);
-    width:800%;
+    width:initial;
 }
 
 .svgBox {
@@ -21,13 +21,16 @@
     display:flex;
 }
 
-
 .focus {
     @apply bg-slate-300 dark:bg-slate-600
 }
 
 .display-none {
     @apply hidden;
+}
+
+.display-collapsed {
+    @apply collapse;
 }
 
 .btn {
@@ -43,11 +46,11 @@
 }
 
 .icon-logo {
-    @apply inline-block flex-shrink-0 text-[1.5rem] hover:scale-105 hover:fill-black dark:hover:fill-white;
+    @apply inline-block flex-shrink-0 text-[1.5rem] hover:scale-125 hover:fill-black dark:hover:fill-white;
 }
 
 .icon-menu {
-    @apply inline-block flex-shrink-0 hover:scale-105 mx-2; 
+    @apply inline-block flex-shrink-0 hover:scale-125 mx-2; 
 }
 
 .icon-btn {
@@ -59,7 +62,7 @@
 }
 
 .icon-hover {
-    @apply hover:scale-105 hover:fill-black dark:hover:fill-white
+    @apply hover:scale-125 hover:fill-black dark:hover:fill-white
 }
 
 .icon-badge {
@@ -84,4 +87,8 @@
 
 .star-hover {
     @apply hover:scale-125 hover:fill-green-600 dark:hover:fill-yellow-300
+}
+
+.text-dm {
+    @apply dark:text-white text-black
 }
