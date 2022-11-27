@@ -7,17 +7,28 @@ interface IInput {
     title: string;
     classes?: string;
     defaultValue?: string;
+    autoFocus?: boolean;
+    disabled?: boolean;
+    required?: boolean;
+    size?: number;
+    max?: number | string | undefined;
+    min?: number | string | undefined;
+    maxLength?: number | undefined;
+    minLength?: number | undefined;
 }
 
-export function Input(props: IInput) {
-    const { type, value, setter, title, classes, defaultValue } = props;
+export function Input(
+    {
+        type, value, setter, title, classes, defaultValue, autoFocus = false, disabled = false, size = 0,
+        required = false, min = undefined, max = undefined, minLength = undefined, maxLength = undefined
+    }: IInput) {
     const [theValue, setTheValue] = useState(value)
     const [spanTitle, setSpanTitle] = useState('')
-
-    const handleChange = (inputValue:any) =>{
-        console.log(inputValue.length>0)
+    const displayTitle = title + (required && ' *')
+    const handleChange = (inputValue: any) => {
+        console.log(inputValue.length > 0)
         setTheValue(inputValue)
-        setSpanTitle((inputValue.length > 0) ? title : '') 
+        setSpanTitle((inputValue.length > 0) ? displayTitle : '')
     }
 
     return (
@@ -30,10 +41,13 @@ export function Input(props: IInput) {
                     <input
                         type={type}
                         value={theValue}
-                        placeholder={title}
+                        placeholder={displayTitle}
                         defaultValue={defaultValue}
-                        onChange={(e)=> handleChange(e.target.value)}
-                        onBlur={()=> setter(theValue)}
+                        alt={title}
+                        disabled={disabled} autoFocus={autoFocus} required={required} size={size}
+                        min={min} max={max} minLength={minLength} maxLength={maxLength}
+                        onChange={(e) => handleChange(e.target.value)}
+                        onBlur={() => setter(theValue)}
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 outline-none block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 -mt-2 -ml-3">
                     </input>
                 </label>

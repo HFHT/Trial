@@ -24,5 +24,6 @@ export * from './Plumbing';
 export * from './Star';
 export * from './Supplies';
 export * from './Palett';
+export * from './ToastIcons';
 export * from './Tools';
 export * from './Truck';

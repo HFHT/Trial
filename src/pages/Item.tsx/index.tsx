@@ -1,5 +1,4 @@
-import { Input } from "../../components/Input";
-import { Select } from "../../components/Select";
+import { Input, Select, Toast } from "../../components";
 
 export function Item(props: any) {
 
@@ -25,14 +24,15 @@ export function Item(props: any) {
                             </button>
                         </div>
                     </div>
-                    <Select value='' title='Subcategory'setter={(e: string) => console.log(e)}>
+                    <Select value='' title='Subcategory' required setter={(e: string) => console.log(e)}>
                         <option value="0">--Select</option>
                         <option value="US">Appliances</option>
                         <option value="CA">Building Materials</option>
                         <option value="FR">Doors & Windows</option>
                         <option value="DE">Electrical</option>
                     </Select>
-                    <Input type='text' value='' title='Subcategory'setter={(e: string) => console.log(e)} />
+                    <Input type='number' value='' title='Subcategory' required min={4} max={10} setter={(e: string) => console.log(e)} />
+                    <Toast id={1} message="Hi there!" position="center" duration={50000} type="info" />
                 </div>
             </div>
         </>

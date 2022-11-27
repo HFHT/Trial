@@ -21,74 +21,38 @@
     display:flex;
 }
 
-.focus {
-    @apply bg-slate-300 dark:bg-slate-600
-}
+.focus {@apply bg-slate-300 dark:bg-slate-600}
 
-.display-none {
-    @apply hidden;
-}
+.display-none {@apply hidden;}
+.display-collapsed {@apply collapse;}
 
-.display-collapsed {
-    @apply collapse;
-}
+.btn {@apply rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider;}
 
-.btn {
-    @apply rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider;
-}
+.card {@apply bg-white rounded overflow-hidden shadow-md relative;}
 
-.card {
-    @apply bg-white rounded overflow-hidden shadow-md relative;
-}
+.touch-ripple {@apply overflow-hidden pointer-events-none absolute z-0 inset-0 rounded-[inherit]}
 
-.touch-ripple {
-    @apply overflow-hidden pointer-events-none absolute z-0 inset-0 rounded-[inherit]
-}
+.icon-logo {@apply inline-block flex-shrink-0 text-[1.5rem] hover:scale-125 hover:fill-black dark:hover:fill-white;}
+.icon-menu {@apply inline-block flex-shrink-0 hover:scale-125 mx-2;}
+.icon-btn {@apply scale-100 w-4 h-4 inline-block flex-shrink-0 text-[1.5rem];}
+.icon-dm {@apply fill-slate-700 dark:fill-white}
+.icon-hover {@apply hover:scale-125 hover:fill-black dark:hover:fill-white}
+.icon-badge {@apply inline-block scale-150}
+.icon-button {@apply mr-2 w-4 h-4 fill-current;}
 
-.icon-logo {
-    @apply inline-block flex-shrink-0 text-[1.5rem] hover:scale-125 hover:fill-black dark:hover:fill-white;
-}
+.navBar {@apply flex flex-col myApp:flex-row overflow-y-auto myApp:overflow-y-visible}
+.navBar-badge {@apply inline-block scale-150 myApp:hidden}
 
-.icon-menu {
-    @apply inline-block flex-shrink-0 hover:scale-125 mx-2; 
-}
+.flexRow {@apply flex flex-row;}
 
-.icon-btn {
-    @apply scale-100 w-4 h-4 inline-block flex-shrink-0 text-[1.5rem];
-}
+.star-hover {@apply hover:scale-125 hover:fill-green-600 dark:hover:fill-yellow-300}
 
-.icon-dm {
-    @apply fill-slate-700 dark:fill-white
-}
+.text-dm {@apply dark:text-white text-black}
 
-.icon-hover {
-    @apply hover:scale-125 hover:fill-black dark:hover:fill-white
-}
-
-.icon-badge {
-    @apply inline-block scale-150
-}
-
-.navBar {
-    @apply flex flex-col myApp:flex-row overflow-y-auto myApp:overflow-y-visible
-}
-
-.navBar-badge {
-    @apply inline-block scale-150 myApp:hidden
-}
-
-.flexRow {
-    @apply flex flex-row;
-}
-
-.icon-button {
-    @apply mr-2 w-4 h-4 fill-current;
-}
-
-.star-hover {
-    @apply hover:scale-125 hover:fill-green-600 dark:hover:fill-yellow-300
-}
-
-.text-dm {
-    @apply dark:text-white text-black
-}
+.top-right {@apply top-0 right-1}
+.top-center {@apply top-0 right-1/2 translate-x-1/2}
+.top-left {@apply top-0 left-1}
+.bottom-left {@apply bottom-0 left-1}
+.bottom-center {@apply bottom-0 right-1/2 translate-x-1/2}
+.bottom-right {@apply bottom-0 right-1}
+.toast-close {@apply w-4 h-4 mx-3 items-center justify-center text-gray-400 dark:text-gray-200 hover:text-gray-900 rounded-md focus:ring-2 focus:ring-gray-300 inline-flex dark:hover:text-white}
