@@ -56,3 +56,5 @@
 .bottom-center {@apply bottom-0 right-1/2 translate-x-1/2}
 .bottom-right {@apply bottom-0 right-1}
 .toast-close {@apply w-4 h-4 mx-3 items-center justify-center text-gray-400 dark:text-gray-200 hover:text-gray-900 rounded-md focus:ring-2 focus:ring-gray-300 inline-flex dark:hover:text-white}
+.btn-save {@apply text-xs uppercase font-bold text-blue-500 dark:text-blue-500 border border-gray-300 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-500 hover:bg-sky-500 dark:hover:text-white active:bg-gray-600 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150}
+.btn-edit {@apply text-xs uppercase font-bold text-blue-500 dark:text-blue-500 border border-gray-300 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-500 hover:bg-sky-500 dark:hover:text-white active:bg-gray-600 px-1 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150}

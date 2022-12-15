@@ -10,6 +10,9 @@ export function Main(props: any) {
   const handleClick = (e: any) => {
     //console.log(e);
   }
+  const handleItemClick = (e: any) => {
+    console.log(e);
+  }
   const handleNavClick = (e: any) => {
     setFilter(e);
     console.log(e);
@@ -91,7 +94,7 @@ export function Main(props: any) {
           label='Modules' labelClass='lg:text-base'
           onSubClick={(e) => handleNavClick(e)}
           subMenu={['Exterior Door', 'Window Section', '4x8 Wall']}
-        />        
+        />
         <NavItem
           icon={<Tools classes=' navBar-badge icon-hover icon-dm' />}
           label='Tools' labelClass='lg:text-base'
@@ -124,7 +127,7 @@ export function Main(props: any) {
           <Button right startIcon={<Download classes=' icon-button' />} onClick={(e) => handleClick(e)}>Download</Button>
         </div>
         <div className="mr-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 myApp:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 ws:grid-cols-7 4k:grid-cols-10">
-          <Card img="https://images.thdstatic.com/productImages/eb67cc0f-990b-4c67-8719-9b96e27df582/svn/framing-studs-058448-64_400.jpg" />
+          <Card img="https://images.thdstatic.com/productImages/eb67cc0f-990b-4c67-8719-9b96e27df582/svn/framing-studs-058448-64_400.jpg"  onClick={(e) => handleItemClick(e)}/>
           <Card img="https://images.thdstatic.com/productImages/eb67cc0f-990b-4c67-8719-9b96e27df582/svn/framing-studs-058448-64_400.jp" />
           <Card />
           <Card />
@@ -147,7 +150,6 @@ export function Main(props: any) {
           <Card />
           <Card />
           <Card select={true} />
-          <Item />
         </div>
       </div>
     </>

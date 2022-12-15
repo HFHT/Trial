@@ -1,38 +1,56 @@
-import { Input, Select, Toast } from "../../components";
+import { Input, Product, Select, Toast } from "../../components";
 
-export function Item(props: any) {
+interface IItem {
+    setter: Function;
+  }
+
+export function Item(props: IItem) {
 
     return (
         <>
-            <div className="fixed hidden1 inset-0 bg-gray-500 bg-opacity-50 overflow-y-auto h-full w-full z-20">
-                <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white dark:bg-gray-700">
-                    <div className="mt-3 text-center">
-                        <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100"    >
-                            <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-50 overflow-y-auto h-full w-full z-20">
+                <div className="relative text-dm top-20 mx-auto p-5 border w-96 lg:w-2/3 shadow-lg rounded-md bg-white dark:bg-gray-700">
+                    <div className="flex pb-2">
+                        <div className="basis-11/12">
+                            <div className="h-9">Edit Inventory Item</div>
                         </div>
-                        <h3 className="text-lg leading-6 font-medium text-gray-900">Successful!</h3>
-                        <div className="mt-2 px-7 py-3">
-                            <p className="text-sm text-gray-500">
-                                Account has been successfully registered!
-                            </p>
-                        </div>
-                        <div className="items-center px-4 py-3">
-                            <button id="ok-btn" className="px-4 py-2 bg-green-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300" >
-                                OK
+                        <div className="flex-footer self-start">
+                            <button className="btn-save" type="button" onClick={(e)=>props.setter(false)}>
+                                Cancel
+                            </button>
+                            <button className="btn-save" type="button">
+                                Save
                             </button>
                         </div>
                     </div>
-                    <Select value='' title='Subcategory' required setter={(e: string) => console.log(e)}>
-                        <option value="0">--Select</option>
-                        <option value="US">Appliances</option>
-                        <option value="CA">Building Materials</option>
-                        <option value="FR">Doors & Windows</option>
-                        <option value="DE">Electrical</option>
-                    </Select>
-                    <Input type='number' value='' title='Subcategory' required min={4} max={10} setter={(e: string) => console.log(e)} />
-                    <Toast id={1} message="Hi there!" position="center" duration={50000} type="info" />
+                    <div className="grid grid-cols-1 gap-1">
+                        <Input type='text' value='' title='Item Name' required setter={(e: string) => console.log(e)} />
+                        <Input type='text' value='' title='Item Description' setter={(e: string) => console.log(e)} />
+                        <div className="grid grid-cols-2 xl:grid-cols-3 mb-2">
+                            <Input type='number' value='' title='Warn Level' required min={0} setter={(e: string) => console.log(e)} />
+                            <Input type='number' value='' title='Alert Level' required min={0} setter={(e: string) => console.log(e)} />
+                            <Select value='' title='Subcategory' required setter={(e: string) => console.log(e)}>
+                                <option value="0">--Select</option>
+                                <option value="US">Appliances</option>
+                                <option value="CA">Building Materials</option>
+                                <option value="FR">Doors & Windows</option>
+                                <option value="DE">Electrical</option>
+                            </Select>
+                        </div>
+                    </div>
+                    <div className="border rounded-md p-2">
+                        <div className="h-9">Associated Products</div>
+                        <div className="grid grid-cols-2 xl:grid-cols-4 gap-1">
+                            <Product
+                                setter={(e: any) => console.log(e)}
+                                product={{
+                                    mfg: 'Manuf', upc: '222222',
+                                    img: 'https://images.thdstatic.com/productImages/eb67cc0f-990b-4c67-8719-9b96e27df582/svn/framing-studs-058448-64_400.jpg'
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <Toast id={1} message="Hi there!" position="center" duration={5000} type="info" />
                 </div>
             </div>
         </>

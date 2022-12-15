@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface IInput {
     type: string;
@@ -24,17 +24,21 @@ export function Input(
     }: IInput) {
     const [theValue, setTheValue] = useState(value)
     const [spanTitle, setSpanTitle] = useState('')
-    const displayTitle = title + (required && ' *')
+    const displayTitle = title + (required ? ' *' : '')
     const handleChange = (inputValue: any) => {
         console.log(inputValue.length > 0)
         setTheValue(inputValue)
         setSpanTitle((inputValue.length > 0) ? displayTitle : '')
     }
 
+    useEffect(() => {
+        (value.toString().length > 0 || disabled) && setSpanTitle(title)
+    }, [])
+    
     return (
         <>
             <div className="">
-                <label className="block text-sm font-medium text-gray-900 dark:text-gray-400 focus-within:text-blue-500 dark:focus-within:text-blue-500 bg-white dark:bg-gray-700 ">
+                <label className="block text-sm font-medium text-gray-900 dark:text-gray-400 focus-within:text-blue-500 dark:focus-within:text-blue-500 bg-white dark:bg-gray-700 ml-3">
                     <span className="bg-gray-50 dark:bg-gray-700">
                         {spanTitle}<span>&#8203;</span>
                     </span>

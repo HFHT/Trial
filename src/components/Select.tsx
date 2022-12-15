@@ -18,7 +18,7 @@ export function Select({ value, setter, title, classes, defaultValue, autoFocus=
     return (
         <>
             <div className="">
-                <label className="block text-sm font-medium text-gray-900 dark:text-gray-400 focus-within:text-blue-500 dark:focus-within:text-blue-500 bg-white dark:bg-gray-700 ">
+                <label className="block text-sm font-medium text-gray-900 dark:text-gray-400 focus-within:text-blue-500 dark:focus-within:text-blue-500 bg-white dark:bg-gray-700 ml-3">
                     <span className="bg-gray-50 dark:bg-gray-700">
                         {title + (required ? ' *' : '')}
                     </span>

@@ -75,8 +75,8 @@ export function Toast({ id, type = "info", message = "---", duration = 5000, pos
     }, [])
 
     return (
-        <div className={`${positionClasses[position]} fixed w-screen max-w-xs`}>
-        <div style={{ ["--elm-translate" as any]: animationVariables[position] }} className={`animate-toatIn ${wrapperClasses[type]} flex justify-between items-center overflow-hidden rounded-md shadow-lg my-3 relative`} ref={wrapperRef} role={"alert"}>
+        <div className={`animate-toatIn ${positionClasses[position]} fixed w-screen max-w-xs`}>
+        <div style={{ ["--elm-translate" as any]: animationVariables[position] }} className={`${wrapperClasses[type]} flex justify-between items-center overflow-hidden rounded-md shadow-lg my-3 relative`} ref={wrapperRef} role={"alert"}>
             {!!duration && (
                 <div className="absolute bottom-0 right-0 left-0 w-full h-1 bg-neutral-100 dark:bg-neutral-500">
                     <span className="absolute bg-neutral-200 left-0 top-0 bottom-0 h-full" />
